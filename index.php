@@ -86,7 +86,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
                 echo "<script>alert('Username or email already exists. Please try another.');</script>";
 
             } else {
-                echo "Error: " . $e->getMessage();
+    // Log error for debugging
+    error_log("Error: " . $e->getMessage());
+    echo "An unexpected error occurred. Please try again later.";
             }
         }
 }
