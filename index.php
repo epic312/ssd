@@ -31,8 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
        // Generate TOTP
         $totp = generateTOTP();
         $_SESSION['totp'] = $totp;
-
-        echo "<body data-totp='$totp'>";  
+        
+       echo "<body data-totp='" . htmlspecialchars($totp, ENT_QUOTES, 'UTF-8') . "'>";
         echo "<script src='login_modal.js'></script>";
        
     } else {
